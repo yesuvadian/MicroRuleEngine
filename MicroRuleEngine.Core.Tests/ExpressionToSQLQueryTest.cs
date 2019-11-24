@@ -5,8 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace MicroRuleEngine.Core.Tests
 {
@@ -28,6 +30,31 @@ namespace MicroRuleEngine.Core.Tests
             }
             return options;
         }
+        [TestMethod]
+        public void BasicExpressionEqualityExpression()
+        {
+            string xml = "<root><Country><CountryCode>USA</CountryCode></Country></root>";
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+
+
+            ParameterExpression xmlParam = Expression.Parameter(typeof(XmlDocument));
+
+            ParameterExpression stringParam = Expression.Parameter(typeof(string));
+
+            Expression callExpr = Expression.Call(
+        Expression.New(typeof(Helpers)),
+        typeof(MicroRuleEngine.Helpers).GetMethod("GetNodeValue", new Type[] { typeof(XmlDocument),
+            typeof(string) }),
+        xmlParam,
+        stringParam
+        );
+
+           
+          var result=  Expression.Lambda<Func<XmlDocument,string,string>>(callExpr,xmlParam,stringParam).Compile();
+           var final= result(doc, "Country.CountryCode");
+        }
+
         [TestMethod]
         public void BasicEqualityExpression()
         {

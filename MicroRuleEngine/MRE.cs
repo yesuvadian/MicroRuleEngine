@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace MicroRuleEngine
 {
@@ -19,6 +20,20 @@ namespace MicroRuleEngine
 
         private static readonly Lazy<MethodInfo> _miGetItem = new Lazy<MethodInfo>(() =>
             typeof(System.Data.DataRow).GetMethod("get_Item", new Type[] { typeof(string) }));
+
+        //private static readonly ParameterExpression xmlParam = Expression.Parameter(typeof(XmlDocument));
+        private static readonly ParameterExpression xmlParam = Expression.Parameter(typeof(XmlDocument));
+
+        private static readonly ParameterExpression stringParam = Expression.Parameter(typeof(string));
+
+       // private static readonly ParameterExpression stringParam = Expression.Parameter(typeof(string));
+
+      
+
+        
+       private static Lazy<PropertyInfo> _miGetxmlnodeItem = new Lazy<PropertyInfo>(() =>
+           typeof(XmlNode).GetProperty("InnerXml", new Type[] { typeof(string) }));
+
 
         private static readonly Tuple<string, Lazy<MethodInfo>>[] _enumrMethodsByName =
             new Tuple<string, Lazy<MethodInfo>>[]
@@ -42,8 +57,29 @@ namespace MicroRuleEngine
         {
             var paramUser = Expression.Parameter(typeof(T));
             Expression expr = GetExpressionForRule(typeof(T), r, paramUser);
-
+           
             return Expression.Lambda<Func<T, bool>>(expr, paramUser).Compile();
+        }
+        public Func<T, string,bool> CompileXmlRule<T>(Rule r)
+        {
+            var paramUser = Expression.Parameter(typeof(T));
+          //  ParameterExpression stringparam = Expression.Parameter(typeof(string));
+            //ParameterExpression xmlparam = Expression.Parameter(typeof(XmlDocument));
+            Expression expr = GetExpressionForRule(typeof(T), r, paramUser);
+
+            return Expression.Lambda<Func<T,string ,bool>>(expr, paramUser, stringParam).Compile();
+
+        }
+
+        public Func<T, string, bool> CompileJSONRule<T>(Rule r)
+        {
+            var paramUser = Expression.Parameter(typeof(T));
+            //  ParameterExpression stringparam = Expression.Parameter(typeof(string));
+            //ParameterExpression xmlparam = Expression.Parameter(typeof(XmlDocument));
+            Expression expr = GetExpressionForRule(typeof(T), r, paramUser);
+
+            return Expression.Lambda<Func<T, string, bool>>(expr, paramUser, stringParam).Compile();
+
         }
         public static Expression<Func<T, bool>> ToExpression<T>(Rule r, bool useTryCatchForNulls = true)
         {
@@ -245,6 +281,15 @@ namespace MicroRuleEngine
                 propExpression = GetDataRowField(param, drule.MemberName, drule.Type);
                 propType = propExpression.Type;
             }
+            else if(param.Type==typeof(XmlDocument) || param.Type.GetProperties().Count() == 0)
+            {
+               
+                var expObjt=ExpressionFactory.GetExpressionObject(param.Type.ToString());
+                propExpression = expObjt.GetExpression(param, rule);
+                propType = propExpression.Type;
+
+            }
+           
             else
             {
                 propExpression = GetProperty(param, rule.MemberName);
@@ -279,12 +324,20 @@ namespace MicroRuleEngine
             switch (rule.Operator)
             {
                 case "IsMatch":
-                    return Expression.Call(
-                        _miRegexIsMatch.Value,
-                        propExpression,
-                        Expression.Constant(rule.TargetValue, typeof(string)),
-                        Expression.Constant(RegexOptions.IgnoreCase, typeof(RegexOptions))
-                    );
+                    {
+                        var exprObj = ExpressionFactory.GetExpressionObject(param.Type.ToString());
+                        if (exprObj != null)
+                        {
+                            Expression expMember = exprObj.GetExpression(param, rule);
+                        }
+                            
+                        return Expression.Call(
+                            _miRegexIsMatch.Value,
+                            propExpression,
+                            Expression.Constant(rule.TargetValue, typeof(string)),
+                            Expression.Constant(RegexOptions.IgnoreCase, typeof(RegexOptions))
+                        );
+                    }
                 case "IsInteger":
                     return Expression.Call(
                         _miIntTryParse.Value,
@@ -370,6 +423,7 @@ namespace MicroRuleEngine
             }
         }
 
+       
         private static MethodInfo GetLinqMethod(string name, int numParameter)
         {
             return typeof(Enumerable).GetMethods(BindingFlags.Static | BindingFlags.Public)
@@ -381,6 +435,7 @@ namespace MicroRuleEngine
         {
             var expMember = Expression.Call(prm, _miGetItem.Value, Expression.Constant(member, typeof(string)));
             var type = Type.GetType(typeName);
+         
             Debug.Assert(type != null);
 
             if (type.IsClass || typeName.StartsWith("System.Nullable"))
@@ -395,10 +450,16 @@ namespace MicroRuleEngine
                 return Expression.Convert(expMember, type);
         }
 
+      
         private static Expression StringToExpression(object value, Type propType)
         {
             Debug.Assert(propType != null);
+            //if (propType is XmlNode)
+            //{
+            //    //var parameterExp = Expression.Parameter(propType, "InnerText");
+            //    //var propertyExp = Expression.Property(parameterExp, propertyName);
 
+            //}
             object safevalue;
             Type valuetype = propType;
             var txt = value as string;

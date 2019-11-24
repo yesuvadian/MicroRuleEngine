@@ -1,0 +1,474 @@
+{
+  "id": "0a1bf4c7-0a7b-4b1c-9bfe-66c4a3d1f767",
+  "_rid": "3-BeANwrEA4BAAAAAAAAAA==",
+  "_self": "dbs/3-BeAA==/colls/3-BeANwrEA4=/docs/3-BeANwrEA4BAAAAAAAAAA==/",
+  "_etag": "\"28007c84-0000-0200-0000-5d0901e00000\"",
+  "datasetid": "13cb13af-407d-46e1-8746-0c466daede29",
+  "config": {
+    "islocked": false,
+    "lockedby": null,
+    "lockeddate": null,
+    "lockexpiredate": null,
+    "status": "Pending",
+    "statusby": "test",
+    "published": "False",
+    "publisheddate": null,
+    "isarchived": false,
+    "rxstatus": "Pending",
+    "medicalstatus": "Pending"
+  },
+  "files": [],
+  "primaryfileid": null,
+  "externalid": "7012344",
+  "content": {
+    "Recipient": {
+      "RecipientId": "ME999999",
+      "FileName": {
+        "@type": "ClientFileName",
+        "#text": "test.zip"
+      },
+      "MailingInfo": {
+        "FirstName": "Plan Sample",
+        "MiddleName": "M",
+        "LastName": "Request",
+        "Address1": "Do not mail",
+        "Address2": "Do not mail",
+        "City": "Anytown",
+        "State": "XX",
+        "Zip": "99999",
+        "Zip4": "4102",
+        "Prefix": "",
+        "Suffix": "",
+        "ZipSpecified": "True",
+        "IntegrityManufacturingID": "015326022"
+      },
+      "ClientProvidedFiles": {
+        "ClientProvidedFile": [
+          "MDGroupExtract_Sample_Batch_4.csv",
+          "RXGroupExtract_Sample_Batch_4.csv"
+        ]
+      },
+      "Extension": {
+        "GroupMemberFileNameStartsWith": "Grp_Mbrs_ANOCEOC_Sample_Batch_4",
+        "CompanyCode": "AE",
+        "GroupNumber": "466908",
+        "Location": "071",
+        "Plan": "00011",
+        "PY_RxBenId": "272217",
+        "CY_RxBenId": "016116",
+        "PY_PlanBuildId": "11695-2",
+        "CY_PlanBuildId": "16115-1",
+        "PlanSponsor": "GWINNETT COUNTY",
+        "InternalPlanCd": "Test MEDICARE ESA PPO PLAN",
+        "MemberID": "ME999999",
+        "GridCode": "D2M",
+        "PY_Dental": "",
+        "CY_Dental": "",
+        "DocumentIdentifier": "499999999999999",
+        "Legal_Entity": "Test Life Insurance Company",
+        "CT_Eff_Date": "01/01/2019",
+        "KitType": "GRP_ANOC",
+        "PlanSponsorAlias": "",
+        "CustomHour": "",
+        "CustomPhoneNumber": "",
+        "WelcomeLetter": "",
+        "BatchID": ""
+      },
+      "ProcessingData": {
+        "CSVfilename": "Grp_Mbrs_ANOCEOC_Sample_Batch_4.csv",
+        "WishboneRunType": "Initial",
+        "WishboneRunId": "6221",
+        "WishboneRecipientId": "7012344",
+        "WishboneFeedId": "9669",
+        "WishboneFeedDate": "20190618152106",
+        "InputFileName": "Test_ANOCEOC_PlanSponsor_20190618074434.xml",
+        "WishboneRunDate": "20190618152109",
+        "WishboneBatchId": "60540",
+        "AfpPdf": "afp",
+        "InspireOutputFileName": "7012344.pdf"
+      },
+      "Compositions": {
+        "Composition": [
+          {
+            "Name": "KITTYPE",
+            "Value": "GRP_ANOC",
+            "CompositionType": "Data",
+            "Sequence": "1",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CUSTCLASS",
+            "Value": "0GH",
+            "CompositionType": "Data",
+            "Sequence": "2",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "MerrillUniqueID",
+            "Value": "7012344",
+            "CompositionType": "Data",
+            "Sequence": "3",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "MerrillRecipientID",
+            "Value": "MANOC0007012344",
+            "CompositionType": "Data",
+            "Sequence": "4",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ADDRESSDRIVERSKU",
+            "Value": "TestGRP-BOOK",
+            "CompositionType": "Data",
+            "Sequence": "5",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "STDPLUSINSERT",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "6",
+            "SelectionCriteria": " boolean(//GridCode[contains(\"A1 A2A A2B A2C A2D A2E A2G A2I A2J A2K A2L A2M A2N A2O A2P B1 B2A B2B B2C B2D B2E B2G B2I B2J B2K B2L B2M B2N B2O B2P C1 C2A C2B C2C C2D C2E C2G C2I C2J C2K C2L C2M C2N C2O C2P D1 D2A D2B D2C D2D D2E D2G D2I D2J D2K D2L D2M D2N D2O D2P F2A F2B F2C F2D F2E F2G F2I F2J F2K F2L F2M F2N F2O F2P F2Q G1 G2A G2B G2C G2D G2E G2G G2I G2J G2K G2L G2M G2N G2O G2P H1 H2A H2B H2C H2D H2E H2G H2I H2J H2K H2L H2M H2N H2O H2P\", text())])"
+          },
+          {
+            "Name": "NEWMEMBERSKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "8",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PLANCHANGESKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "9",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PDNINSERTSKU",
+            "Value": "GRP_1059_1027a",
+            "CompositionType": "Data",
+            "Sequence": "10",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "EOCINVENTORYSKU",
+            "Value": "19EGWP_CCP_D2",
+            "CompositionType": "Data",
+            "Sequence": "24",
+            "SelectionCriteria": " boolean(//GridCode[contains(\"D2A D2B D2C D2D D2E D2G D2I D2J D2K D2L D2M D2N D2O D2P\", text())])"
+          },
+          {
+            "Name": "FORMULARYSKU",
+            "Value": "2019GRPB2PLUS4.1",
+            "CompositionType": "Data",
+            "Sequence": "41",
+            "SelectionCriteria": " boolean(//GridCode[contains(\"A2M A4M B2M B4M C2M C4M D2M D4M F2M F4M G2M G4M H2M H4M\", text())])"
+          },
+          {
+            "Name": "OWNERSMANUALSKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "49",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "HEALTHTRACKERSKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "50",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ERISALETTERSKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "51",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "FNAME",
+            "Value": "Plan Sample",
+            "CompositionType": "Data",
+            "Sequence": "52",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "MI",
+            "Value": "M",
+            "CompositionType": "Data",
+            "Sequence": "53",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "LNAME",
+            "Value": "Request",
+            "CompositionType": "Data",
+            "Sequence": "54",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ADDRESS1",
+            "Value": "Do not mail",
+            "CompositionType": "Data",
+            "Sequence": "55",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ADDRESS2",
+            "Value": "Do not mail",
+            "CompositionType": "Data",
+            "Sequence": "56",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CITY",
+            "Value": "Anytown",
+            "CompositionType": "Data",
+            "Sequence": "57",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "STATE",
+            "Value": "XX",
+            "CompositionType": "Data",
+            "Sequence": "58",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ZIP",
+            "Value": "99999",
+            "CompositionType": "Data",
+            "Sequence": "59",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ZIP4",
+            "Value": "4102",
+            "CompositionType": "Data",
+            "Sequence": "60",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "DOCID",
+            "Value": "499999999999999",
+            "CompositionType": "Data",
+            "Sequence": "61",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "MEM_ID",
+            "Value": "ME999999",
+            "CompositionType": "Data",
+            "Sequence": "62",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "IMBCODE",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "63",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "COMPCODE",
+            "Value": "AE",
+            "CompositionType": "Data",
+            "Sequence": "64",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "GROUPNUM",
+            "Value": "466908",
+            "CompositionType": "Data",
+            "Sequence": "65",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "LOCATION",
+            "Value": "071",
+            "CompositionType": "Data",
+            "Sequence": "66",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PLAN",
+            "Value": "00011",
+            "CompositionType": "Data",
+            "Sequence": "67",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PY_RXBENID",
+            "Value": "272217",
+            "CompositionType": "Data",
+            "Sequence": "68",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CY_RXBENID",
+            "Value": "016116",
+            "CompositionType": "Data",
+            "Sequence": "69",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PY_PlanBuildId",
+            "Value": "11695-2",
+            "CompositionType": "Data",
+            "Sequence": "70",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CY_PlanBuildId",
+            "Value": "16115-1",
+            "CompositionType": "Data",
+            "Sequence": "71",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PLANSPONSR",
+            "Value": "GWINNETT COUNTY",
+            "CompositionType": "Data",
+            "Sequence": "72",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "INTPLANCD",
+            "Value": "Test MEDICARE ESA PPO PLAN",
+            "CompositionType": "Data",
+            "Sequence": "73",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "GRIDCODE",
+            "Value": "D2M",
+            "CompositionType": "Data",
+            "Sequence": "74",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PY_DENTAL1",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "75",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CY_DENTAL1",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "76",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "LEGALENT",
+            "Value": "Test Life Insurance Company",
+            "CompositionType": "Data",
+            "Sequence": "77",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CT_EFF_DT",
+            "Value": "01/01/2019",
+            "CompositionType": "Data",
+            "Sequence": "78",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "ORDTIMSTMP",
+            "Value": "20190618152106",
+            "CompositionType": "Data",
+            "Sequence": "79",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PlanSponsorAlias",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "80",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CustomHour",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "81",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "CustomPhoneNo",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "82",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "WelcomeLetter",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "83",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PDFNAME",
+            "Value": "7012344.pdf",
+            "CompositionType": "Data",
+            "Sequence": "84",
+            "SelectionCriteria": "//WishboneRunType = 'Initial'"
+          },
+          {
+            "Name": "XMLNAME",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "85",
+            "SelectionCriteria": "//WishboneRunType = 'Initial'"
+          },
+          {
+            "Name": "WishboneRecipientId",
+            "Value": "7012344",
+            "CompositionType": "Data",
+            "Sequence": "86",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "STDPLUS2D",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "87",
+            "SelectionCriteria": ""
+          },
+          {
+            "Name": "PlanSpecificLetterSKU",
+            "Value": "",
+            "CompositionType": "Data",
+            "Sequence": "89",
+            "SelectionCriteria": " boolean(//GroupNumber[not(contains(\"467110 467113 467114 467115 467116 467117 467118 467119 467120\", text()))])"
+          }
+        ]
+      },
+      "OrderItems": null
+    }
+  },
+  "name": null,
+  "description": null,
+  "createddateticks": 636964681927399800,
+  "autoid": "72595801",
+  "deliveryid": null,
+  "parent": null,
+  "children": [],
+  "locale": null,
+  "version": null,
+  "taxonomypath": null,
+  "taxonomyindex": null,
+  "language": null,
+  "familyid": null,
+  "recordtype": 0,
+  "modifiedby": "TM\\svc_order_builder_ts",
+  "modifieddate": "2019-06-18T15:23:12.7399821Z",
+  "createdby": "TM\\svc_order_builder_ts",
+  "createddate": "2019-06-18T15:23:12.7399821Z",
+  "_attachments": "attachments/",
+  "_ts": 1560871392
+}

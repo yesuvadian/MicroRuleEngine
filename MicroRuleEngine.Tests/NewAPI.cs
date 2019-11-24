@@ -2,6 +2,10 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MicroRuleEngine.Tests.Models;
+using System.Xml;
+using System.Web.Helpers;
+using System.IO;
+using System.Reflection;
 
 namespace MicroRuleEngine.Tests
 {
@@ -26,6 +30,10 @@ namespace MicroRuleEngine.Tests
             passes = compiledRule(order);
             Assert.IsFalse(passes);
         }
+
+     
+
+        
 
         [TestMethod]
         public void IntProperties()
