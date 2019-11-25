@@ -34,6 +34,54 @@ One of the tests:
 	}
 ```
 
+How to apply rule for XML?
+------------------
+The best examples of how to use the `MicroRuleEngine (MRE)` can be found in the Test project included in the Solution.
+
+One of the tests:
+```csharp
+	 [TestMethod]
+        public void XmlProperties()
+        {
+           
+            string xml = "<root><Country><Id>1</Id><CountryCode>USA</CountryCode>" +
+                "<State><StateCode>NY</StateCode></State></Country></root>";
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            Rule rule = Rule.Create("Country.CountryCode", mreOperator.Equal, "USA") &
+                Rule.Create("Country.State.StateCode", mreOperator.Equal, "NY");
+
+            MRE engine = new MRE();
+            var compiledRule = engine.CompileXmlRule<XmlDocument>(rule);
+            bool passes = compiledRule(doc, "");
+            Assert.IsTrue(passes);
+
+        }
+```
+
+How to apply rule for JSON ?
+------------------
+The best examples of how to use the `MicroRuleEngine (MRE)` can be found in the Test project included in the Solution.
+
+One of the tests:
+```csharp
+	 [TestMethod]
+        public void JSONPropertiesTrue()
+        {
+
+            string json = "{  \"AnnotationId\": \"f573e938-7602-5f07-7d64-f92c162199ff\",\"RecordId\": \"788\",\"PageNumber\": \"90\",  \"ParentId\": \"fdc732ee-4e8d-c930-2d85-14933013998a\"}";
+
+            dynamic data = Json.Decode(json);
+            Rule rule = Rule.Create("RecordId", mreOperator.Equal, "788") &
+                Rule.Create("PageNumber", mreOperator.Equal, "90");
+
+            MRE engine = new MRE();
+            var compiledRule = engine.CompileJSONRule<dynamic>(rule);
+            bool passes = compiledRule(data, "");
+            Assert.IsTrue(passes);
+
+```
+
 What Kinds of Rules can I express
 --------------------------------
 In addition to comparative operators such as `Equals`, `GreaterThan`, `LessThan` etc.   You can also call methods on the object that return a `boolean` value such as `Contains` or `StartsWith` on a string. In addition to comparative operators, additional operators such as `IsMatch` or `IsInteger` have been added and demonstrates how you could edit the code to add your own operator(s). Rules can also be `AND`'d or `OR`'d together:
